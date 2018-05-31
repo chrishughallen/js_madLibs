@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
+	<style>
+		.mainInput{
+			margin: 0 auto;
+			width: 50%;
+		}
+
+		#question{
+			margin-top: 20vh;
+		}
+	</style>
+
+</head>
+<body>
+
+
+<div id="question">
+	<div class="row">
+		<div class="col-12 text-center">
+	<h4><span id="current"></span></h4>
+<input id="userInput" type="text" class="mainInput form-control">
+	<br>
+	<button id="submitBtn" class="mainInput btn btn-success">Submit</button>
+	</div>
+	</div>
+	</div>
+</div>
+	
+
+
+
+
+
+
+	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<script>
+	
+
+let userInput = $("#userInput")
+
+
+$("#submitBtn").click(function(){
+	testInput()
+});
+
+
+const words = ['noun', 'verb ending in "ing" ', 'adjective']
+let i = 0;
+const userWords = [];
+$("#current").html(words[0])
+
+function testInput(){
+	userWords.push(userInput.val());
+	userInput.val("");
+	i++;
+	$("#current").html(words[i])
+	if(i == words.length){
+		$("#question").html("The " + userWords[2] + " " +  userWords[0] + " was caught " + userWords[1]);
+	}
+}
+
+
+
+</script>
+
+
+</body>
+</html>
